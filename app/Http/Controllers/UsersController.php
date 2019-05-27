@@ -10,8 +10,9 @@ class UsersController extends Controller
     {
         //mark all as read
             auth()->user()->unreadNotifications->markAsRead();
+        
+        
         //display al notifications
-
         return view('users.notifications', [
             'notifications' => auth()->user()->notifications()->paginate(5)
         ]);

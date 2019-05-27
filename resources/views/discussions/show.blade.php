@@ -56,18 +56,21 @@
                         </div>
 
                         <div>
-                           @if(auth()->user()->id === $discussion->user_id)
+                           @auth
+                            @if(auth()->user()->id === $discussion->user_id)
                                 <form action="{{ route('discussions.best-reply', ['discussion' => $discussion->slug, 'reply' => $reply->id]) }}" method="POST">
                                     @csrf
                                     <button type="submit" class="btn btn-sm btn-primary">Mark as Best Reply</button>
                                 </form>
-                           @endif
+                            @endif
+                           @endauth
                         </div>
 
                     </div>
 
                 </div>
-                <div class="card-body">
+                <div cla
+                s="card-body">
                     {!! $reply->content !!}
 
                    
